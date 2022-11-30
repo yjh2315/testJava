@@ -12,6 +12,7 @@ public class Main {
         long sum=0;
         for(int i : a){
             sum = sum+i;
+            d
         }
         return sum;
     }
