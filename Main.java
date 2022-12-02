@@ -5,25 +5,43 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
 
 
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        String in = br.readLine();
-        if(in.length()==1&&in.equals(" ")){
-            bw.write("0"+"\n");
-        }else{
-            String[] inA = in.split(" ");
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int a = Integer.parseInt(st.nextToken());
+        int b = Integer.parseInt(st.nextToken());
+        int c = Integer.parseInt(st.nextToken());
+        long i = 0;
+        char ind = 0;
+        long prev = a;
 
-            if(inA[0]==""&&inA.length!=0){
-                bw.write(inA.length-1+"\n");
-            }else{
-                bw.write(inA.length+"\n");
+        while(true){
+            long nowL = a+i*b;
+            long nowR = i*c;
+            long now = nowL-nowR;
+            if(nowL<nowR) break;
+            if(prev<now){
+                ind = 1;
+                break;
             }
+            prev = now;
+            i++;
         }
         
+        if(ind == 1){
+            bw.write("-1 \n");
+        }else{
+            bw.write(i+"\n");
+        }
+
+
+
+
         bw.flush();
         bw.close();
         br.close();
