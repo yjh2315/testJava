@@ -16,31 +16,15 @@ public class Main {
         int a = Integer.parseInt(st.nextToken());
         int b = Integer.parseInt(st.nextToken());
         int c = Integer.parseInt(st.nextToken());
-        long i = 0;
-        char ind = 0;
-        long prev = a;
+        int res = 0;
 
-        while(true){
-            long nowL = a+i*b;
-            long nowR = i*c;
-            long now = nowL-nowR;
-            if(nowL<nowR) break;
-            if(prev<now){
-                ind = 1;
-                break;
-            }
-            prev = now;
-            i++;
+        if(b>=c){
+            res = -1;
+        }else{
+            res = a/(c-b)+1;
         }
         
-        if(ind == 1){
-            bw.write("-1 \n");
-        }else{
-            bw.write(i+"\n");
-        }
-
-
-
+        bw.write(res+"\n");
 
         bw.flush();
         bw.close();
