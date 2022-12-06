@@ -26,6 +26,7 @@ public class Main {
             for(int i=0,j=0; i<num; j++){
                 i = i+j;
                 rep = j;
+                if(num<i+j+1) break;
             }
             rep = rep+2;
         }
