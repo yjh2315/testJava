@@ -13,18 +13,24 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int a = Integer.parseInt(st.nextToken());
-        int b = Integer.parseInt(st.nextToken());
-        int c = Integer.parseInt(st.nextToken());
-        int res = 0;
+        int in = Integer.parseInt(st.nextToken());
+        int num = 0;
+        int rep = 0;
 
-        if(b>=c){
-            res = -1;
+        in = in-2;
+
+        if(in==-1){
+            rep = 1;
         }else{
-            res = a/(c-b)+1;
+            num = in/6;
+            for(int i=0,j=0; i<num; j++){
+                i = i+j;
+                rep = j;
+            }
+            rep = rep+2;
         }
-        
-        bw.write(res+"\n");
+
+        bw.write(rep+"\n");
 
         bw.flush();
         bw.close();
