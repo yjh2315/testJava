@@ -12,24 +12,31 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int a = Integer.parseInt(st.nextToken());
-        int b = Integer.parseInt(st.nextToken());
-        int v = Integer.parseInt(st.nextToken());
-
-        double day = (v-b)/(double)(a-b);
-        int res = 0;
-
-        if(day-(int)day>0){
-            res = (int)day+1;
-        }else{
-            res = (int)day;
+        int t = Integer.parseInt(st.nextToken());
+        for(int i=0;i<t;i++){
+            st = new StringTokenizer(br.readLine());
+            int h = Integer.parseInt(st.nextToken());
+            int w = Integer.parseInt(st.nextToken());
+            int n = Integer.parseInt(st.nextToken());
+    
+            double douDis = (double)n/h;
+            int intDis;
+            if(douDis%1>0){
+                intDis = (int)douDis+1;
+            }else{
+                intDis = (int)douDis;
+            }
+    
+            int height = n%h;
+            if(height == 0){
+                height = h;
+            }
+    
+            bw.write(height+String.format("%02d", intDis)+"\n");    
         }
-
-
-        bw.write(res+"\n");
-
-
+        
         bw.flush();
         bw.close();
         br.close();
