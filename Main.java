@@ -13,28 +13,21 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        int in = Integer.parseInt(st.nextToken());
-        int i = 0,j = 0;
+        int a = Integer.parseInt(st.nextToken());
+        int b = Integer.parseInt(st.nextToken());
+        int v = Integer.parseInt(st.nextToken());
 
-        while(in-i>0){
-            j++;
-            i=i+j;
-        }
-        
-        int in2=in-i+j;
+        double day = (v-b)/(double)(a-b);
+        int res = 0;
 
-        int up = 0,down=0;
-
-        if(j%2==0){
-            up = in2;
-            down = j-up+1;
+        if(day-(int)day>0){
+            res = (int)day+1;
         }else{
-            down = in2;
-            up = j-down+1;
+            res = (int)day;
         }
-        
 
-        bw.write(up+"/"+down+"\n");
+
+        bw.write(res+"\n");
 
 
         bw.flush();
